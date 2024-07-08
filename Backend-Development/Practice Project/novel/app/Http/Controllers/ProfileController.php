@@ -12,8 +12,6 @@ class ProfileController extends Controller
     public function __invoke(Request $request)
     {
         //write logic
-        return "This is single action controller";
+        return 'This is single action controller';
     }
 }
-
-

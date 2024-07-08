@@ -7,8 +7,10 @@
 </head>
 <body>
 <div>
-<h1>Welcome to the dashboard page</h1>
-     <h3>Life is available only in the present moment. - Thich Nhat Hanh</h3>
+<h1>Welcome to the dashboard page, {{$Username}}</h1>
+<h3>Life is available only in the present moment. - Thich Nhat Hanh</h3>
+<hr>
+<h2>APP Name = {{$appName}}</h2>
 </div>
 </body>
 </html>
