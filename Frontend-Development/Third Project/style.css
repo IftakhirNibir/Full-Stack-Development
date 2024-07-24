@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.circle{
+    position: relative;
+    top:50%;
+    left: 50%;
+    width: 40vw;
+    height: 40vw;
+    border-radius: 100%;
+    border: 1px solid black;
+    transform: translate(-50%,-50%);
+}
+
+.circle .box5{
+    position: relative;
+    top:50%;
+    left: 50%;
+    width: 31vw;
+    height: 25vw;
+    transform: translate(-50%,-50%);
+}
+
+.box5 .box6{
+    position: absolute;
+    top:0%;
+    left: 0%;
+    width: 12vw;
+    height: 10vw;
+    background-color: brown;
+}
+
+.box5 .box7{
+    position: absolute;
+    top:0%;
+    right: 0%;
+    width: 12vw;
+    height: 10vw;
+    background-color: brown;
+}
+
+.box5 .box8{
+    position: absolute;
+    bottom:0%;
+    right: 0%;
+    width: 12vw;
+    height: 10vw;
+    background-color: brown;
+}
+
+.box5 .box9{
+    position: absolute;
+    bottom:0%;
+    left: 0%;
+    width: 12vw;
+    height: 10vw;
+    background-color: brown;
+}
+
+.box5 .circle2{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 8.5vw;
+    height: 8.5vw;
+    border-radius: 100%;
+    border: 1px solid black;
+    transform: translate(-50%,-50%);
+}
+
+.main{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.box1{
+    position: absolute;
+    background-color: brown;
+    width: 30vw;
+    height: 20vw;
+    top: 0; 
+    left: 0;
+}
+
+.box2{
+    position: absolute;
+    right: 0;
+    top:0;
+    background-color: brown;
+    width: 30vw;
+    height: 20vw;
+    
+}
+
+.box3{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: brown;
+    width: 30vw;
+    height: 20vw;
+}
+
+.box4{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: brown;
+    width: 30vw;
+    height: 20vw;
+    
+}
