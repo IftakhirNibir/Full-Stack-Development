@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            overflow: hidden;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.3s ease-in-out; 
+        }
+        .one {
+            background-color: brown;
+        }
+        .two {
+            background-color: rgb(152, 238, 23);
+        }
+        .three {
+            background-color: burlywood;
+        }
+        
+        .one, .two, .three {
+            min-width: 100vw;
+            min-height: 40vh;
+        }
+
+        #btns {
+            display: flex;
+            width: 50%;
+            justify-content: space-between; 
+            margin: 20px auto; 
+        }
+        .one h1, .two h1, .three h1 {
+            text-align: center;
+            font-size: 80px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="slider">
+        <div class="one">
+            <h1>This is the first slide</h1>
+        </div>
+        <div class="two">
+            <h1>This is the second slide</h1>
+        </div>
+        <div class="three">
+            <h1>This is the third slide</h1>
+        </div>
+    </div>
+    <div id="btns">
+        <button id="btn1">Pre</button>
+        <button id="btn3">Add Slide</button>
+        <button id="btn2">Next</button>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
