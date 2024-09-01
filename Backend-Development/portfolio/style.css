@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+body{
+    background-color: #f9f9f9;
+}
+
+.navbar a{
+    font-size: 20px;
+}
+
+.abtme-2 .text{
+    font-size: 20px;
+}
+
+.abtme-2 .card{
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.abtme-2 .card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+#skill .text{
+    font-size: 20px;
+}
+
+#skill .card{
+    flex: 1 1 100px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#skill .card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+#Project .text {
+    font-size: 20px;
+}
+
+#Project .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    border-radius: 25px; 
+    overflow: hidden;
+}
+
+#Project .card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+#Project .card a {
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease; 
+}
+
+#Project .card-img-top {
+    height: 155px; 
+    object-fit: cover; 
+}
+
+#Project .card-title, #Project .card-text {
+    text-align: center;
+    min-height: 90px;
+    margin-bottom: 10px;
+}
+
+#Project .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#contact .text{
+    font-size: 20px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Adjust the value to control the movement */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px); /* Adjust the value to control the movement */
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.floating-animation {
+    animation: floating 3s ease-in-out infinite;
+}
+
+.typewriter h3 {
+    overflow: hidden; 
+    white-space: nowrap;
+    margin: 0 auto; 
+    animation: 
+      typing 3.5s steps(40, end) 1s infinite, /* Typing effect with a delay */
+      blink-caret 0.75s step-end infinite; /* Blinking cursor effect */
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+
