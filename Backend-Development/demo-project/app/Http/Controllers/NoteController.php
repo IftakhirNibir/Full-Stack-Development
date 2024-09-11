@@ -13,7 +13,7 @@ class NoteController extends Controller
     public function index()
     {
         //
-        $notes = Note::query()->orderBy("created_at","desc")->paginate(10);
+        $notes = Note::query()->where("user_id", request()->user()->id)->orderBy("created_at","desc")->paginate(10);
         return view('note.index',['notes'=> $notes]);
     }
 
@@ -32,6 +32,14 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request -> validate([
+            'note' => ['required', 'string']
+        ]);
+
+        $data['user_id'] = $request->user()->id;
+        $note = Note::create($data);
+
+        return to_route('note.show', $note)->with('message','Note was created');
     }
 
     /**
@@ -40,6 +48,9 @@ class NoteController extends Controller
     public function show(Note $note)
     {
         //
+        if($note->user_id != request()->user()->id){
+            abort(403);
+        }
         return view('note.show',['note'=> $note]);
     }
 
@@ -49,6 +60,9 @@ class NoteController extends Controller
     public function edit(Note $note)
     {
         //
+        if($note->user_id != request()->user()->id){
+            abort(403);
+        }
         return view('note.edit',['note'=> $note]);
     }
 
@@ -58,6 +72,16 @@ class NoteController extends Controller
     public function update(Request $request, Note $note)
     {
         //
+        if($note->user_id != request()->user()->id){
+            abort(403);
+        }
+        $data = $request -> validate([
+            'note' => ['required', 'string']
+        ]);
+
+        $note->update($data);
+
+        return to_route('note.show', $note)->with('message','Note was updated');
       
     }
 
@@ -67,5 +91,12 @@ class NoteController extends Controller
     public function destroy(Note $note)
     {
         //
+        if($note->user_id != request()->user()->id){
+            abort(403);
+        }
+        $note->delete();
+        return to_route('note.index', $note)->with('message','Note was deleted');
     }
 }
+
+

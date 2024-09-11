@@ -1,5 +1,5 @@
-<x-layout>
-    <h1 class="text-center">All Notes</h1>
+<x-app-layout>
+    <h1 class="text-center" style="font-size:xx-large">All Notes</h1>
     <a href="{{ route('note.create') }}" class="btn btn-primary">Create New</a>
     <table class="table mt-3">
         <thead>
@@ -20,12 +20,19 @@
                 <td>{{ Str::words($note->note, 30) }}</td>
                 <td><a href="{{ route('note.show',$note)}}" class="btn btn-primary">View</a></td>
                 <td><a href="{{ route('note.edit',$note)}}" class="btn btn-warning">Edit</a></td>
-                <td><a href="{{ route('note.destroy',$note)}}" class="btn btn-danger">Delete</a></td>
+                <td>
+                <form action="{{ route('note.destroy',$note)}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger">Delete</button>
+                </form>
+                </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-</x-layout>
+    {{$notes->links()}}
+</x-app-layout>
 
 
 
