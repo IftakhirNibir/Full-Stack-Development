@@ -77,6 +77,13 @@ class TaskController extends Controller
         ]);
     }
 
+    //View specific Task
+
+    public function show(Task $task)
+    {
+        return view('tasks.view', compact('task'));
+    }
+
     //delete the task
     public function destroy(Task $task)
     {

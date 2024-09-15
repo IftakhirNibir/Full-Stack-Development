@@ -17,9 +17,10 @@
         <div class="my-3">
           <input type="file" class="form-control" name="image"> 
         </div>
-        <div class="button" style="display: flex">
+        <div class="button mb-5" style="display: flex">
         <a href="{{url()->previous()}}" class="btn btn-outline-secondary">Back</a>
         <button type="submit" class="btn btn-outline-primary mx-3">Update</button>
         </div>
       </form>
 </x-layout>
+

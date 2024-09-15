@@ -23,7 +23,7 @@
             <img src="{{ asset('storage/' . $task->image) }}" alt="Task Image" class="img-fluid" style="width: 100px; height: 50px; object-fit:cover;">
             @endif
             </td>
-            <td>{{$task->name}}</td>
+            <td><a style="text-decoration: none;color:black;" href="{{route('task.show',$task)}}">{{$task->name}}</a></td>
             <td>{{$task->description}}</td>
             <td>
                 <a href="{{route('task.edit',$task)}}" class="btn btn-outline-info">Edit</a>
@@ -47,3 +47,7 @@
     </script>
     
 </x-layout>
+
+
+
+
