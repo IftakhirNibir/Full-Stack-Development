@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue2 JS</title>
+</head>
+
+<body>
+    <div id="app">
+        <form @submit.prevent="addItem">
+            <input type="text" v-model="newItem"><br>
+        </form>
+        <ul>
+            <li v-for='(item,index) in items' :key='index'>
+                <button @click="removeItem(index)">
+                    remove
+                </button>
+                {{item.name}} => <input  v-model="item.price">
+            </li>
+            <li>Total price = {{total}}</li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el : '#app',
+            data :{
+                items:[
+                    {name: 'rice', price: 12.50},
+                    {name: 'wheat', price: 15.50},
+                    {name: 'oil', price: 22.50},
+                ],
+                newItem : ''
+            },
+            computed:{
+                total(){
+                    var total=0;
+                    this.items.forEach(item => {
+                        total+= parseFloat(item.price)
+                    });
+                    return total
+                }
+            },
+            methods:{
+                addItem(){
+                    this.items.push({
+                        name: this.newItem,
+                        price: 0.00
+                    })
+                },
+                removeItem(index){
+                    this.items.splice(index,1)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
+
+
