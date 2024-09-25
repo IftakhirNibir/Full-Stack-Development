@@ -13,10 +13,13 @@ class HomeController extends Controller
     public function index(){
 
         // $allcategories = DB::table("categories")->get();
-        $allcategories = Category::all();
-        $posts = Post::latest()->get();
-        $posts = Post::orderBy('id','desc')->get();
-        return view('home', compact('allcategories', 'posts'));
+        $categories = Category::all();
+        // $posts = Post::latest()->get();
+        $posts = Post::when(request('cate_id'), function($query){
+            $query->where('category_id', request('cate_id'));
+        })->latest()->get();
+
+        return view('home', compact('categories', 'posts'));
     }
 }
 
