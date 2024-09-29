@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Sidebar with Editor and Preview</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <link rel="stylesheet" href="styles.css">
+     <style>
+        /* Style to make the textarea and iframe take up full height */
+        html, body {
+            height: 100%;
+        }
+
+        .code-editor {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            font-family: monospace;
+        }
+
+        .output {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Ensure responsive layout */
+        @media (min-width: 768px) {
+            .code-editor, .output {
+                height: 90vh; /* Take up most of the screen height */
+            }
+        }
+     </style>  
+</head>
+  <body>
+    <div class="d-flex align-items-start p-2 h-100">
+        <!-- Sidebar for navigation -->
+        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <button class="nav-link active" id="v-pills-html-tab" data-bs-toggle="pill" data-bs-target="#v-pills-html" type="button" role="tab" aria-controls="v-pills-html" aria-selected="true">HTML</button>
+          <button class="nav-link" id="v-pills-css-tab" data-bs-toggle="pill" data-bs-target="#v-pills-css" type="button" role="tab" aria-controls="v-pills-css" aria-selected="false">CSS</button>
+          <button class="nav-link" id="v-pills-javascript-tab" data-bs-toggle="pill" data-bs-target="#v-pills-javascript" type="button" role="tab" aria-controls="v-pills-javascript" aria-selected="false">JavaScript</button>
+        </div>
+
+        <!-- Tab content with code editor and iframe preview -->
+        <div class="tab-content flex-grow-1" id="v-pills-tabContent">
+          <!-- HTML Tab -->
+          <div class="tab-pane fade show active" id="v-pills-html" role="tabpanel" aria-labelledby="v-pills-html-tab">
+            <div class="row h-100">
+              <div class="col-md-6">
+                <textarea class="code-editor" onkeyup="run()" id="html-editor" placeholder="Write your html code here..."></textarea>
+              </div>
+              <div class="col-md-6">
+                <iframe class="output" id="output"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- CSS Tab -->
+          <div class="tab-pane fade" id="v-pills-css" role="tabpanel" aria-labelledby="v-pills-css-tab">
+            <div class="row h-100">
+              <div class="col-md-6">
+                <textarea class="code-editor" onkeyup="run()" id="css-editor" placeholder="Write your css code here..."></textarea>
+              </div>
+              <div class="col-md-6">
+                <iframe class="output" id="output"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- Javascript Tab -->
+          <div class="tab-pane fade" id="v-pills-javascript" role="tabpanel" aria-labelledby="v-pills-javascript-tab">
+            <div class="row h-100">
+              <div class="col-md-6">
+                <textarea class="code-editor" onkeyup="run()" id="javascript-editor" placeholder="Write your javaScript code here..."></textarea>
+              </div>
+              <div class="col-md-6">
+                <iframe class="output" id="output"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function run(){
+            let html = document.getElementById('html-editor').value
+            let css = document.getElementById('css-editor').value
+            let javaScript = document.getElementById('javascript-editor').value
+            let output = document.getElementById('output')
+
+            output.contentDocument.body.innerHTML = html+"<style>"+css+"</style>";
+            output.contentWindow.eval(javaScript);
+        }
+    </script>
+</body>
+</html>
