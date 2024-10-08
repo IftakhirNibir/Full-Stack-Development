@@ -7,31 +7,27 @@
     <title>Practice JQuery</title>
 
     <script>
-        $(document).ready(function(){
-            $("p").on({
-                mouseenter: function(){
-                $(this).css("color", "lightgray");
-                },  
-                mouseleave: function(){
-                $(this).css("color", "lightblue");
-                }, 
-                click: function(){
-                $(this).css("color", "yellow");
-                }  
+     $(document).ready(function(){
+        $("button").click(function(){
+            $('#div1').load("something.txt",function(responseTxt, statusTxt, xhr){
+                if(statusTxt=="success"){
+                    alert("Content loaded successfully");
+                }
+                if(statusTxt=="error"){
+                    alert("Error : " + xhr.statusTxt + " statusCode: "+ xhr.status)
+                }
             });
         });
-
-    // $(document).ready(function(){
-    //     $('p').on("click",function(){
-    //         $(this).css("color","red");
-    //     });
-    // });
+     });
     </script>
 
 </head>
 
 <body>
-    <p>Hello bro</p>
+   <div id="div1"></div>
+   <button>submit</button>
 </body>
 
 </html>
+
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Post</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $.post('update.php',
+                    {
+                        "age": 23,
+                        "city": "Dhaka"
+                    },
+                    function(data, status){
+                        alert("Data: " + data + "\nStatus: " + status);
+                    }
+                );
+            });
+        });
+    </script>
+    
+</head>
+
+<body>
+    <button>Post</button>
+</body>
+
+</html>
