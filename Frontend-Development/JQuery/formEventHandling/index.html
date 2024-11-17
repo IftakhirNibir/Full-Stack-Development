@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Events</title>
+</head>
+<body>
+    <div class="container">
+        <form id="form">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname"><br>
+            <label for="gender">Gender:</label><br>
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <h1 class="one"></h1>
+</body>
+
+<script>
+    $(document).ready(function(){
+        $('input').focus(function(){
+            $(this).css('background', 'pink');
+        });
+        $('input').blur(function(){
+            $(this).css('background','white');
+        });
+    });
+
+    $('input').keyup(function(e){
+        $('.one').html(e.target.value);
+    });
+
+    // $('select').change(function(e){
+    //     alert(e.target.value);
+    // });
+
+    $('#form').submit(function(){
+        var name = $('input#fname').val();
+        var last = $('input#lname').val();
+        var gender = $('select#gender').val();
+        alert('Hi bro '+ name + ' ' + last +', your gender is ' + gender);
+    });
+
+</script> 
+</html>
