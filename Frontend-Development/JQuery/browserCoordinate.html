@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinate</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 class="coords"></h1>
+
+    <script>
+        $(document).ready(function(){
+            $(document).on('mousemove',function(e){
+                $('.coords').html('Coords: Y: '+e.clientY+" X: "+e.clientX);
+            });
+        });
+    </script>
+</body>
+
+</html>
