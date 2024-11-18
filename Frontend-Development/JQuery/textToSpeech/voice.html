@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>jQuery text to speech</title>
+</head>
+<button id="btn1">click</button>
+<body>
+    <script>
+        $(document).ready(function(){
+            $('#btn1').click(function(){ 
+        if ('speechSynthesis' in window) {
+            var msg = new SpeechSynthesisUtterance("If you don't want to write a lot of code (or import some library that you don't understand), I suggest you use Google TTS services. It's quite simple. For example you have a text like: welcome to Stack overflow you can call like this:");
+            window.speechSynthesis.speak(msg);
+        }
+    }); 
+    });
+            </script>    
+</body>
+</html>
