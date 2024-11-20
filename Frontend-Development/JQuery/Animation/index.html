@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Animation</title>
+    <style>
+        #box{
+            background-color: grey;
+            color: white;
+            width: 500px;
+            height: 90px;
+            padding: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="btnFadeOut">Fade Out</button>
+    <button id="btnFadeIn">Fade In</button>
+    <button id="btnFadeTog">Fade Toggle</button>
+    <button id="btnSlideUp">Slide Up</button>
+    <button id="btnSlideDown">Slide Down</button>
+    <button id="btnSlideTog">Slide Toggle</button>
+    <button id="btnStop">Stop</button>
+    <hr>
+    <div id="box"><h1>Something</h1></div>
+    <script>
+        $(document).ready(function(){
+            $('#btnFadeOut').click(function(){
+                $('#box').fadeOut('slow', function(){
+                    $('#btnFadeOut').text('It\'s Gone')
+                });
+            })
+            $('#btnFadeIn').click(function(){
+                $('#box').fadeIn('slow', function(){
+                    $('#btnFadeIn').text('It\'s come')
+                });
+            })
+            $('#btnFadeTog').click(function(){
+                $('#box').fadeToggle('fast');
+            })
+            $('#btnSlideUp').click(function(){
+                $('#box').slideUp('slow');
+            })
+            $('#btnSlideDown').click(function(){
+                $('#box').slideDown('slow');
+            });
+            $('#btnSlideTog').click(function(){
+                $('#box').slideToggle(2000);
+            })
+            $('#btnStop').click(function(){
+                $('#box').stop();
+            })
+        })
+    </script>
+</body>
+</html>
